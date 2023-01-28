@@ -2,10 +2,10 @@ package com.driver.test;
 
 import com.driver.model.*;
 import com.driver.repository.*;
-import com.driver.repository.PaymentRepository;
-import com.driver.repository.ReservationRepository;
-import com.driver.repository.SpotRepository;
-import com.driver.services.ReservationService;
+//import com.driver.repository.PaymentRepository;
+//import com.driver.repository.ReservationRepository;
+//import com.driver.repository.SpotRepository;
+//import com.driver.services.ReservationService;
 import com.driver.services.impl.*;
 import org.junit.Before;
 import org.junit.Rule;
