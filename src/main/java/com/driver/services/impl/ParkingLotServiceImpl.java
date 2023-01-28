@@ -34,10 +34,10 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) {
-        Spot spot=new Spot();
 
-        spot.setPricePerHour(pricePerHour);
-        spot.setOccupied(false);
+        ParkingLot parkingLot= parkingLotRepository1.findById(parkingLotId).get();
+
+        Spot spot=new Spot();
 
         if(numberOfWheels<4){
             spot.setSpotType(SpotType.TWO_WHEELER);
@@ -47,7 +47,9 @@ public class ParkingLotServiceImpl implements ParkingLotService {
             spot.setSpotType(SpotType.OTHERS);
         }
 
-        ParkingLot parkingLot= parkingLotRepository1.findById(parkingLotId).get();
+        spot.setPricePerHour(pricePerHour);
+        spot.setParkingLot(parkingLot);
+        parkingLot.getSpotList().add(spot);
 
 //        List<Spot> spotList= parkingLot.getSpotList();
 //        if(spotList==null){
@@ -55,10 +57,6 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 //        }
 //
 //        spotList.add(spot);
-
-        spot.setParkingLot(parkingLot);
-        parkingLot.getSpotList().add(spot);
-
 
         parkingLotRepository1.save(parkingLot);
         return spot;
