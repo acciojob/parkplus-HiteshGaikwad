@@ -51,13 +51,6 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         spot.setParkingLot(parkingLot);
         parkingLot.getSpotList().add(spot);
 
-//        List<Spot> spotList= parkingLot.getSpotList();
-//        if(spotList==null){
-//            spotList=new ArrayList<>();
-//        }
-//
-//        spotList.add(spot);
-
         parkingLotRepository1.save(parkingLot);
         return spot;
     }
